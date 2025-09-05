@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyGram - Share Your Moments</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: "sofia-pro", sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- Navigation -->
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-4 py-6 lg:px-6">
+    <!-- Stories Section -->
+    <section data-id="stories-section" class="mb-8">
+      <div data-id="stories-container" class="flex space-x-4 overflow-x-auto pb-4 scrollbar-hide">
+        <!-- Stories will be loaded dynamically -->
+      </div>
+    </section>
+
+    <!-- Post Feed -->
+    <section data-id="feed-section" class="space-y-6">
+      <!-- Posts will be loaded dynamically -->
+      <div data-id="posts-container" class="space-y-6">
+        <!-- Loading placeholder -->
+        <div data-id="loading-placeholder" class="text-center py-8">
+          <div class="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full mx-auto"></div>
+          <p class="text-gray-600 mt-2">Loading posts...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Create Post Modal -->
+  <div id="create-post-modal" data-id="create-post-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+    <div class="flex items-center justify-center min-h-screen p-4">
+      <div class="bg-white rounded-xl max-w-lg w-full p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 data-id="modal-title" class="text-xl font-bold">Create New Post</h3>
+          <button data-id="close-modal-btn" class="text-gray-400 hover:text-gray-600">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <form data-id="create-post-form" class="space-y-4">
+          <div>
+            <label data-id="image-label" class="block text-sm font-medium text-gray-700 mb-2">Photo</label>
+            <div data-id="image-upload-area" class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-blue-400 cursor-pointer">
+              <i data-lucide="camera" class="w-8 h-8 mx-auto text-gray-400 mb-2"></i>
+              <p class="text-gray-600">Click to select a photo</p>
+              <input type="file" data-id="image-input" accept="image/*" class="hidden">
+            </div>
+            <div data-id="image-preview" class="hidden mt-4">
+              <img data-id="preview-image" class="w-full h-48 object-cover rounded-lg">
+            </div>
+          </div>
+          <div>
+            <label data-id="caption-label" class="block text-sm font-medium text-gray-700 mb-2">Caption</label>
+            <textarea data-id="caption-input" rows="3" placeholder="Write a caption..." class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+          </div>
+          <div class="flex space-x-3 pt-4">
+            <button type="button" data-id="cancel-btn" class="flex-1 px-4 py-2 text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200">Cancel</button>
+            <button type="submit" data-id="share-btn" class="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Share</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    import { initializeApp } from './scripts/app.js';
+    
+    // Load components
+    await loadComponent('#navbar-container');
+    
+    // Initialize app
+    initializeApp();
+    
+    // Initialize icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

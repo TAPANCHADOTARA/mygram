@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore - MyGram</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/yjp3aho.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: "sofia-pro", sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <!-- Navigation -->
+  <div id="navbar-container" data-source="components/navbar.html"></div>
+
+  <!-- Main Content -->
+  <main class="max-w-6xl mx-auto px-4 py-6">
+    <!-- Search Section -->
+    <section data-id="search-section" class="mb-8">
+      <div class="relative max-w-md mx-auto">
+        <input 
+          type="text" 
+          data-id="explore-search"
+          placeholder="Search posts, people, hashtags..." 
+          class="w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        >
+        <i data-lucide="search" class="absolute left-4 top-3.5 w-5 h-5 text-gray-400"></i>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section data-id="categories-section" class="mb-8">
+      <div class="flex space-x-4 overflow-x-auto pb-4">
+        <button data-id="category-all" class="px-6 py-2 bg-blue-600 text-white rounded-full whitespace-nowrap">All</button>
+        <button data-id="category-trending" class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 whitespace-nowrap">Trending</button>
+        <button data-id="category-photography" class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 whitespace-nowrap">Photography</button>
+        <button data-id="category-food" class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 whitespace-nowrap">Food</button>
+        <button data-id="category-travel" class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 whitespace-nowrap">Travel</button>
+        <button data-id="category-fitness" class="px-6 py-2 bg-gray-100 text-gray-700 rounded-full hover:bg-gray-200 whitespace-nowrap">Fitness</button>
+      </div>
+    </section>
+
+    <!-- Explore Grid -->
+    <section data-id="explore-grid" class="grid grid-cols-3 gap-1 md:gap-4">
+      <!-- Posts will be loaded dynamically -->
+      <div data-id="grid-loading" class="col-span-3 text-center py-12">
+        <div class="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full mx-auto"></div>
+        <p class="text-gray-600 mt-4">Loading posts...</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script type="module">
+    import { loadComponent } from './scripts/components/loader.js';
+    import { initializeExplore } from './scripts/explore.js';
+    
+    // Load components
+    await loadComponent('#navbar-container');
+    
+    // Initialize explore page
+    initializeExplore();
+    
+    // Initialize icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

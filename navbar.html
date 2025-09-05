@@ -1,0 +1,84 @@
+<nav data-id="main-navbar" class="bg-white border-b border-gray-200 sticky top-0 z-40">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <a href="index.html" data-id="logo-link" class="flex items-center space-x-2">
+        <div class="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+          <i data-lucide="camera" class="w-5 h-5 text-white"></i>
+        </div>
+        <span class="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">MyGram</span>
+      </a>
+
+      <!-- Search Bar (Hidden on mobile) -->
+      <div data-id="search-container" class="hidden md:flex items-center max-w-xs w-full">
+        <div class="relative w-full">
+          <input 
+            type="text" 
+            data-id="search-input"
+            placeholder="Search..." 
+            class="w-full pl-10 pr-4 py-2 bg-gray-100 border-0 rounded-lg focus:ring-2 focus:ring-blue-500"
+          >
+          <i data-lucide="search" class="absolute left-3 top-2.5 w-4 h-4 text-gray-400"></i>
+        </div>
+      </div>
+
+      <!-- Navigation Items -->
+      <div class="flex items-center space-x-4">
+        <!-- Home -->
+        <a href="index.html" data-id="home-link" class="p-2 text-gray-700 hover:text-blue-600">
+          <i data-lucide="home" class="w-6 h-6"></i>
+        </a>
+        
+        <!-- Explore -->
+        <a href="explore.html" data-id="explore-link" class="p-2 text-gray-700 hover:text-blue-600">
+          <i data-lucide="compass" class="w-6 h-6"></i>
+        </a>
+        
+        <!-- Create Post -->
+        <button data-id="create-post-btn" class="p-2 text-gray-700 hover:text-blue-600">
+          <i data-lucide="plus-square" class="w-6 h-6"></i>
+        </button>
+        
+        <!-- Messages -->
+        <a href="messages.html" data-id="messages-link" class="p-2 text-gray-700 hover:text-blue-600 relative">
+          <i data-lucide="message-circle" class="w-6 h-6"></i>
+          <span data-id="message-badge" class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center hidden">3</span>
+        </a>
+        
+        <!-- Notifications -->
+        <button data-id="notifications-btn" class="p-2 text-gray-700 hover:text-blue-600 relative">
+          <i data-lucide="heart" class="w-6 h-6"></i>
+          <span data-id="notification-badge" class="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center hidden">5</span>
+        </button>
+        
+        <!-- Profile -->
+        <a href="profile.html" data-id="profile-link" class="w-8 h-8 rounded-full overflow-hidden border-2 border-transparent hover:border-gray-300">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face" alt="Profile" class="w-full h-full object-cover">
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button data-id="mobile-menu-btn" class="md:hidden p-2 text-gray-700">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div data-id="mobile-menu" class="md:hidden border-t border-gray-200 hidden">
+      <div class="py-3 space-y-1">
+        <a href="explore.html" data-id="mobile-explore" class="flex items-center px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">
+          <i data-lucide="compass" class="w-5 h-5 mr-3"></i>
+          Explore
+        </a>
+        <a href="messages.html" data-id="mobile-messages" class="flex items-center px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">
+          <i data-lucide="message-circle" class="w-5 h-5 mr-3"></i>
+          Messages
+        </a>
+        <a href="profile.html" data-id="mobile-profile" class="flex items-center px-3 py-2 text-gray-700 hover:bg-gray-100 rounded">
+          <i data-lucide="user" class="w-5 h-5 mr-3"></i>
+          Profile
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
